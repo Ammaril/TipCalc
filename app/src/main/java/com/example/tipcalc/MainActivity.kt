@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
         setContentView(binding.root)
 
         setupListeners()
+        recalculate()
     }
 
     private fun setupListeners() {
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val itemsCount = s?.toString()?.toIntOrNull() ?: 0
+                val itemsCount = parseItemsCount(s?.toString())
                 val discountPercent = getDiscountPercent(itemsCount)
 
                 updateRadioGroup(discountPercent)
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
             val tipPercent = value.toInt()
             binding.tvTipPercent.text = getString(R.string.tip_percent_format, tipPercent)
 
-            val bill = binding.etOrderAmount.text.toString().toDoubleOrNull() ?: 0.0
+            val bill = parseBill(binding.etOrderAmount.text?.toString())
             val tipAmount = calculateTip(bill, tipPercent)
 
             val snackbarText = String.format(Locale.getDefault(), "Чаевые: %.2f ₽", tipAmount)
@@ -69,6 +70,18 @@ class MainActivity : ComponentActivity() {
             isShowingTotal = !isShowingTotal
             recalculate()
         }
+    }
+
+    private fun parseBill(input: String?): Double {
+        if (input.isNullOrBlank()) return 0.0
+        val parsed = input.toDoubleOrNull() ?: 0.0
+        return parsed.coerceAtLeast(0.0)
+    }
+
+    private fun parseItemsCount(input: String?): Int {
+        if (input.isNullOrBlank()) return 0
+        val parsed = input.toIntOrNull() ?: 0
+        return parsed.coerceAtLeast(0)
     }
 
     private fun updateRadioGroup(discountPercent: Int) {
@@ -88,14 +101,14 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun recalculate() {
-        val bill = binding.etOrderAmount.text.toString().toDoubleOrNull() ?: 0.0
+        val bill = parseBill(binding.etOrderAmount.text?.toString())
         val tipPercent = binding.sliderTip.value.toInt()
-        val itemsCount = binding.etDishesCount.text.toString().toIntOrNull() ?: 0
+        val itemsCount = parseItemsCount(binding.etDishesCount.text?.toString())
         val discountPercent = getDiscountPercent(itemsCount)
 
         val tip = calculateTip(bill, tipPercent)
         val discount = calculateDiscount(bill, discountPercent)
-        val total = calculateTotal(bill, tip, discount)
+        val total = calculateTotal(bill, tip, discount).coerceAtLeast(0.0)
 
         binding.tvTipPercent.text = getString(R.string.tip_percent_format, tipPercent)
         binding.tvDiscountAmount.text = getString(R.string.discount_amount_format, discount)
