@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TipCalc</string>
+    <string name="order_amount">Сумма заказа</string>
+    <string name="enter_amount">Введите сумму</string>
+    <string name="dishes_count">Количество блюд</string>
+    <string name="enter_dishes_count">Введите количество</string>
 </resources>

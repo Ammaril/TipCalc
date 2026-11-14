@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvOrderAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_amount"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etOrderAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_amount"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/tvDishesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/dishes_count"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etDishesCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_dishes_count"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+</LinearLayout>
