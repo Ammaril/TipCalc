@@ -11,6 +11,9 @@
     <string name="discount_5">5%</string>
     <string name="discount_7">7%</string>
     <string name="discount_10">10%</string>
-    <string name="discount_amount_default">Сумма скидки: 0 ₽</string>
+    <string name="discount_amount_default">Сумма скидки: 0.00 ₽</string>
+    <string name="discount_amount_format">Сумма скидки: %.2f ₽</string>
     <string name="btn_total">Итого</string>
+    <string name="total_amount_default">Итого: 0.00 ₽</string>
+    <string name="total_amount_format">Итого: %.2f ₽</string>
 </resources>

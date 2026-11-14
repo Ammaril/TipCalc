@@ -119,5 +119,14 @@
             android:layout_marginTop="24dp"
             android:text="@string/btn_total" />
 
+        <TextView
+            android:id="@+id/tvTotalResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/total_amount_default"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 </ScrollView>
