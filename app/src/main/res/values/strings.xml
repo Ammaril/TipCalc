@@ -6,4 +6,11 @@
     <string name="enter_dishes_count">Введите количество</string>
     <string name="tip_percent_default">Чаевые: 10%</string>
     <string name="tip_percent_format">Чаевые: %1$d%%</string>
+    <string name="discount_label">Скидка</string>
+    <string name="discount_3">3%</string>
+    <string name="discount_5">5%</string>
+    <string name="discount_7">7%</string>
+    <string name="discount_10">10%</string>
+    <string name="discount_amount_default">Сумма скидки: 0 ₽</string>
+    <string name="btn_total">Итого</string>
 </resources>

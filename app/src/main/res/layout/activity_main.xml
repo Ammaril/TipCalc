@@ -1,60 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvOrderAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/order_amount"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/etOrderAmount"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_amount"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvDishesCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/dishes_count"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvOrderAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_amount"
+            android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/etDishesCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_dishes_count"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        <EditText
+            android:id="@+id/etOrderAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_amount"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
-    <TextView
-        android:id="@+id/tvTipPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/tip_percent_default"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvDishesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dishes_count"
+            android:textSize="18sp" />
 
-    <com.google.android.material.slider.Slider
-        android:id="@+id/sliderTip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:valueFrom="0"
-        android:valueTo="25"
-        android:stepSize="5"
-        android:value="10" />
+        <EditText
+            android:id="@+id/etDishesCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_dishes_count"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvTipPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/tip_percent_default"
+            android:textSize="18sp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="25"
+            android:stepSize="5"
+            android:value="10" />
+
+        <TextView
+            android:id="@+id/tvDiscountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/discount_label"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/rgDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbDiscount3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/discount_3" />
+
+            <RadioButton
+                android:id="@+id/rbDiscount5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/discount_5" />
+
+            <RadioButton
+                android:id="@+id/rbDiscount7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/discount_7" />
+
+            <RadioButton
+                android:id="@+id/rbDiscount10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/discount_10" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvDiscountAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/discount_amount_default"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_total" />
+
+    </LinearLayout>
+</ScrollView>
