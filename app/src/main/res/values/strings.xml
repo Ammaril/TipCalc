@@ -4,4 +4,6 @@
     <string name="enter_amount">Введите сумму</string>
     <string name="dishes_count">Количество блюд</string>
     <string name="enter_dishes_count">Введите количество</string>
+    <string name="tip_percent_default">Чаевые: 10%</string>
+    <string name="tip_percent_format">Чаевые: %1$d%%</string>
 </resources>

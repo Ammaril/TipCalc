@@ -40,4 +40,21 @@
         android:minHeight="48dp"
         android:autofillHints="" />
 
+    <TextView
+        android:id="@+id/tvTipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tip_percent_default"
+        android:textSize="18sp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="25"
+        android:stepSize="5"
+        android:value="10" />
+
 </LinearLayout>
