@@ -12,6 +12,7 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var isShowingTotal = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +64,9 @@ class MainActivity : ComponentActivity() {
             recalculate()
         }
 
-        // Кнопка "Итого"
+        // Кнопка переключения "Итого" / "Скидка"
         binding.btnTotal.setOnClickListener {
+            isShowingTotal = !isShowingTotal
             recalculate()
         }
     }
@@ -97,7 +99,14 @@ class MainActivity : ComponentActivity() {
 
         binding.tvTipPercent.text = getString(R.string.tip_percent_format, tipPercent)
         binding.tvDiscountAmount.text = getString(R.string.discount_amount_format, discount)
-        binding.tvTotalResult.text = getString(R.string.total_amount_format, total)
+
+        if (isShowingTotal) {
+            binding.tvTotalResult.text = getString(R.string.total_amount_format, total)
+            binding.btnTotal.text = getString(R.string.btn_show_discount)
+        } else {
+            binding.tvTotalResult.text = getString(R.string.discount_amount_format, discount)
+            binding.btnTotal.text = getString(R.string.btn_total)
+        }
     }
 
     private fun calculateTip(bill: Double, tipPercent: Int): Double {

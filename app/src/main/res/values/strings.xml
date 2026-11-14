@@ -14,6 +14,7 @@
     <string name="discount_amount_default">Сумма скидки: 0.00 ₽</string>
     <string name="discount_amount_format">Сумма скидки: %.2f ₽</string>
     <string name="btn_total">Итого</string>
+    <string name="btn_show_discount">Скидка</string>
     <string name="total_amount_default">Итого: 0.00 ₽</string>
     <string name="total_amount_format">Итого: %.2f ₽</string>
 </resources>
