@@ -6,6 +6,8 @@ import android.text.TextWatcher
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import com.example.tipcalc.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
 
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        // Дополнительные слушатели для динамического пересчета
+        // Слушатель изменения суммы заказа
         binding.etOrderAmount.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -47,11 +49,21 @@ class MainActivity : ComponentActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        binding.sliderTip.addOnChangeListener { _, value, _ ->
-            binding.tvTipPercent.text = getString(R.string.tip_percent_format, value.toInt())
+        // Слушатель слайдера чаевых
+        binding.sliderTip.addOnChangeListener { slider, value, _ ->
+            val tipPercent = value.toInt()
+            binding.tvTipPercent.text = getString(R.string.tip_percent_format, tipPercent)
+
+            val bill = binding.etOrderAmount.text.toString().toDoubleOrNull() ?: 0.0
+            val tipAmount = calculateTip(bill, tipPercent)
+
+            val snackbarText = String.format(Locale.getDefault(), "Чаевые: %.2f ₽", tipAmount)
+            Snackbar.make(slider, snackbarText, Snackbar.LENGTH_SHORT).show()
+
             recalculate()
         }
 
+        // Кнопка "Итого"
         binding.btnTotal.setOnClickListener {
             recalculate()
         }
